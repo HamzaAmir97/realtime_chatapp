@@ -4,7 +4,11 @@ import { Route, Routes } from 'react-router'
 import ChatPage from './pages/ChatPage'
 import LoginPage from './pages/LoginPage'
 import SignUp from './pages/SignUp'
+import { useAuthStore } from './store/useAuthStore'
 const App = () => {
+  const {authUser,isLoading,login} = useAuthStore();
+
+  console.log(authUser);
   return (
     <div className="min-h-screen bg-slate-900 relative flex items-center justify-center p-4 overflow-hidden">
       {/* DECORATORS - GRID BG & GLOW SHAPES */}
@@ -14,7 +18,7 @@ const App = () => {
 
   <Routes>
 <Route path="/" element={<ChatPage />} />
-<Route path="login" element={<LoginPage />} />
+<Route path="signin" element={<LoginPage />} />
 <Route path="signup" element={<SignUp />} />
     </Routes>
     </div>
