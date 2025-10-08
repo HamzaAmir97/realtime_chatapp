@@ -2,8 +2,9 @@ import { useEffect, useRef } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
 import ChatHeader from "./ChatHeader";
-
 import MessagesLoadingSkeleton from "./MessagesLoadingSkeleton";
+import NoChatHistoryPlaceholder from "./NoChatHistoryPlaceholder";
+import MessageInput from "./MessageInput";
 
 function ChatContainer() {
   const {
@@ -25,6 +26,8 @@ function ChatContainer() {
     return () => unsubscribeFromMessages();
   }, [selectedUser, getMessagesByUserId, subscribeToMessages, unsubscribeFromMessages]);
 
+
+  
   useEffect(() => {
     if (messageEndRef.current) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });

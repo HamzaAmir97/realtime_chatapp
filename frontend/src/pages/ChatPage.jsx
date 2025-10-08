@@ -8,6 +8,7 @@ import ContactList from "../components/ContactList";
 
 import ChatsList from "../components/ChatsList";
 import ChatContainer from "../components/ChatContainer";
+import NoConversationPlaceholder from "../components/NoConversationPlaceholder";
 
 function ChatPage() {
   const { activeTab, selectedUser } = useChatStore;
