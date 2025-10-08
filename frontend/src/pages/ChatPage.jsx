@@ -3,10 +3,12 @@ import { useChatStore } from "../store/useChatStore";
 import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 import ProfileHeader from "../components/ProfileHeader";
 import ActiveTabSwitch from "../components/ActiveTabSwitch";
-import ChatsList from "../components/ChatsList";
+
 import ContactList from "../components/ContactList";
-import ChatContainer from "../components/ChatContainer";
-import NoConversationPlaceholder from "../components/NoConversationPlaceholder";
+
+// import ChatContainer from "../components/ChatContainer";
+// import NoConversationPlaceholder from "../components/NoConversationPlaceholder";
+import ChatsList from "../components/ChatsList";
 
 function ChatPage() {
   const { activeTab, selectedUser } = useChatStore();
@@ -25,9 +27,9 @@ function ChatPage() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex-1 flex flex-col bg-slate-900/50 backdrop-blur-sm">
+        {/* <div className="flex-1 flex flex-col bg-slate-900/50 backdrop-blur-sm">
           {selectedUser ? <ChatContainer /> : <NoConversationPlaceholder />}
-        </div>
+        </div> */}
       </BorderAnimatedContainer>
     </div>
   );
