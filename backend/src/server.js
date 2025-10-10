@@ -4,17 +4,17 @@ import path from "path";
 import cors from "cors";
 
 import authRoutes from "./routes/auth.route.js";
-// import messageRoutes from "./routes/message.route.js";
+import messageRoutes from "./routes/message.route.js";
 import { connectDB } from "./lib/db.js";
 import { ENV } from "./lib/env.js";
-// import { app, server } from "./lib/socket.js";
-// import app from "./app.js";
+import { app, server } from "./lib/socket.js";
+
 
 const __dirname = path.resolve();
 
 const PORT = ENV.PORT || 3000;
 
-const app = express();
+
 app.use(express.json({ limit: "5mb" })); // req.body
 
 app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
@@ -22,7 +22,7 @@ app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
-// app.use("/api/messages", messageRoutes);
+app.use("/api/messages", messageRoutes);
 
 // make ready for deployment
 if (ENV.NODE_ENV === "production") {
@@ -33,7 +33,7 @@ if (ENV.NODE_ENV === "production") {
   });
 }
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log("Server running on port: " + PORT);
   connectDB();
 });
